@@ -1,6 +1,6 @@
 #coding:utf-8
 '''
-Created on 2014-8-27
+Created on 2014-12-15
 
 解析excel导出的 *.xml 文件
 
@@ -11,9 +11,11 @@ try:
     import xml.etree.cElementTree as ET             # C语言编译的xml包
 except:
     import xml.etree.ElementTree as ET
+
 import os
-import bpcommon
-import makeTable
+
+import common
+
 
 EXCEL_OPEN_XML_WORK_SHEET = "{urn:schemas-microsoft-com:office:spreadsheet}Worksheet"               # 微软excel的电子表格节点
 EXCEL_OPEN_XML_WORK_SHEET_NAME = "{urn:schemas-microsoft-com:office:spreadsheet}Name"               # 微软excel的电子表格名属性
@@ -24,15 +26,6 @@ EXCEL_OPEN_XML_WORK_SHEET_COMMENT = "{urn:schemas-microsoft-com:office:spreadshe
 EXCEL_OPEN_XML_WORK_SHEET_DATA = "{urn:schemas-microsoft-com:office:spreadsheet}Data"               # 微软excel的单元格内数据标签
 EXCEL_OPEN_XML_WORK_SHEET_CELL_INDEX = "{urn:schemas-microsoft-com:office:spreadsheet}Index"        # 微软excel的单元格下标属性
 
-
-
-SHEET_SET = set()
-SHEET_OFFICER = "officer"
-SHEET_SET.add(SHEET_OFFICER)
-SHEET_SKILL = "skill"
-SHEET_SET.add(SHEET_SKILL)
-SHEET_SKILL_EFFECT = "skill effect"
-SHEET_SET.add(SHEET_SKILL_EFFECT)
 
 
 class XmlWorkBook(object):
@@ -363,7 +356,7 @@ class Parser(object):
             print u'找不到xml文件路径:' , self.xmlFloderPath
             return False
 
-        xmlFilseNameArray = bpcommon.getFileBySuffix(self.xmlFloderPath, self.xmlSuffix)
+        xmlFilseNameArray = common.getFileBySuffix(self.xmlFloderPath, self.xmlSuffix)
         if len(xmlFilseNameArray) == 0:
             print u'路径没有*.xml文件'
             return False
@@ -374,7 +367,7 @@ class Parser(object):
         生成xmlWorkSheet对象
         :return:
         '''
-        xmlFilseNameArray = bpcommon.getFileBySuffix(self.xmlFloderPath, self.xmlSuffix)
+        xmlFilseNameArray = common.getFileBySuffix(self.xmlFloderPath, self.xmlSuffix)
         for xmlFileName in xmlFilseNameArray:
             ''' 设成*.xml的实例 '''
             workBook = XmlWorkBook(xmlFileName, self.xmlFloderPath)
