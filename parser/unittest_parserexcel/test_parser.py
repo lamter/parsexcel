@@ -1,6 +1,6 @@
 #coding:utf-8
 '''
-Created on 2014-12-15
+Created on 2014-12-17
 
 @author: Shawn
 '''
@@ -9,19 +9,19 @@ Created on 2014-12-15
 import json
 import unittest
 
-from parser import parse_xlsm
+from parser import parser
 
 Encoder = json.JSONEncoder()
 Decoder = json.JSONDecoder()
 
 
 def suite():
-    testSuite1 = unittest.makeSuite(TestParseXlsm, "test")
+    testSuite1 = unittest.makeSuite(TestParser, "test")
     alltestCase = unittest.TestSuite([testSuite1, ])
     return alltestCase
 
 
-class TestParseXlsm(unittest.TestCase):
+class TestParser(unittest.TestCase):
     '''
     测试武将相关
     '''
@@ -29,22 +29,13 @@ class TestParseXlsm(unittest.TestCase):
         self.excelFilePath = 'excelfile'
 
 
-
-    def test_parse_xlsm(self):
+    def test_getAllFilenameS(self):
         """
-        解析 .xlsm 格式的文件
+        获得指定目录下所有文件的文件名
         :return:
         """
-        wb = parse_xlsm.XlsmWorkBook(self.excelFilePath + "/officer.xlsm")
-
-
-
-
-
-
-
-
-
+        theParser = parser.Parser(self.excelFilePath)
+        print theParser.filenameS
 
 
 
