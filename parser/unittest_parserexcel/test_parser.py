@@ -8,6 +8,7 @@ Created on 2014-12-17
 
 import json
 import unittest
+import os
 
 from parser import parser
 
@@ -35,7 +36,8 @@ class TestParser(unittest.TestCase):
         :return:
         """
         theParser = parser.Parser(self.excelFilePath)
-        print theParser.filenameS
+        print theParser.excelFilenameS
+
 
 
 

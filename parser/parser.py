@@ -17,16 +17,22 @@ class Parser(object):
     解析指定路径下全部的excel文件
     """
     ''' 可以解析的 excel 文件类型 '''
-    EXCEL_FILEL_TYPE_LIST = ['.xlsx', '.xlsm', '.xls']
+    EXCEL_FILEL_TYPE_LIST = ['xlsx', 'xlsm', 'xls']
 
     def __init__(self, path):
         self.path = path
+        self。
 
 
     def parse_all(self):
         """
+        解析所有文件
         :return:
         """
+        for fn in self.excelFilenameS:
+            filepath = os.path.join(self.floder, fn)
+            return filepath
+
 
     @property
     def floder(self):
@@ -39,23 +45,20 @@ class Parser(object):
 
 
     @property
-    def filenameS(self):
+    def excelFilenameS(self):
         """
-        获得路径下所有文件的文件名
+        获得路径下所有excel文件的文件名
         :return:
         """
+        filenameS = []
         for d, fd, fl in os.walk(self.floder):
+            filenameS = fl
+            break
 
+        excelFilesnameS = []
+        for filename in filenameS:
+            sufix = os.path.splitext(filename)[1][1:]
+            if sufix in self.EXCEL_FILEL_TYPE_LIST:
+                excelFilesnameS.append(filename)
 
-
-
-    @classmethod
-    def isFileType(cls, filename):
-        """
-        是否是可以解析的文件类型
-        :param filename:
-        :return:
-        """
-        filename
-
-        return False
+        return excelFilesnameS
