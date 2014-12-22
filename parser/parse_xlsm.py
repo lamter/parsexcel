@@ -28,7 +28,7 @@ class XlsmWorkBook(object):
         self.wb = load_workbook(filename=filename)
 
         ''' 获得表名sheetName列表 '''
-        self.sheetNames =
+        # self.sheetNames =
 
         # ''' 获得表头列表 '''
         # self.headers = self.getHeaders()

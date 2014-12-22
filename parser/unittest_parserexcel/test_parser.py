@@ -39,7 +39,25 @@ class TestParser(unittest.TestCase):
         print theParser.excelFilenameS
 
 
+    def test_load(self):
+        """
+        读取
+        :return:
+        """
+        theParser = parser.Parser(self.excelFilePath)
+        theParser.load()
 
+
+
+    def test_setInfoArray(self):
+        """
+        解析 成 infoArray 的数据格式
+        :return:
+        """
+        theParser = parser.Parser(self.excelFilePath)
+        theParser.load()
+        for ws in theParser.getAllWorksheet():
+            print ws.infoArray
 
 
 
