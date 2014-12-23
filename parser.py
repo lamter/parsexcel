@@ -9,9 +9,6 @@ import os
 
 from openpyxl import load_workbook
 
-import common
-
-
 
 class Parser(object):
     """

@@ -5,12 +5,10 @@ Created on 2014-12-17
 @author: Shawn
 '''
 
-
 import json
 import unittest
-import os
 
-from parser import parser
+import parser
 
 Encoder = json.JSONEncoder()
 Decoder = json.JSONDecoder()
