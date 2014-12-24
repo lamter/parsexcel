@@ -104,8 +104,8 @@ class Parser(object):
         生成infoArray格式的数据缓存
         :return:
         """
-        infoArray = []
         for ws in self.getAllWorksheet():
+            infoArray = []
             for r in ws.get_squared_range(1, 1, ws.max_column, ws.max_row):
                 infoArray.append([c.value for c in r])
             ws.infoArray = infoArray
