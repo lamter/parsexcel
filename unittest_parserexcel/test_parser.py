@@ -58,4 +58,21 @@ class TestParser(unittest.TestCase):
             print ws.infoArray
 
 
+    def test_getSum(self):
+        """
+        获得 计算公式的值
+        :return:
+        """
+        theParser = parser.Parser(self.excelFilePath)
+        theParser.load()
+        ws = theParser.getAllWorksheet()[0]
+        print 'ws.title->', ws.title
+        print 'C2->', ws['C2'].value
+        # for dataS in ws.infoArray:
+        #     for d in dataS:
+        #         print u'%s\t' % d,
+        #     print
+
+
+
 

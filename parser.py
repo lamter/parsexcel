@@ -83,7 +83,8 @@ class Parser(object):
         for efn in self.excelFilenameS:
             ''' excel file name '''
             ap = self.getAP(efn)
-            wb = load_workbook(filename=ap, read_only=True)
+            # wb = load_workbook(filename=ap, read_only=True)
+            wb = load_workbook(filename=ap, read_only=True, data_only=True)
             self.excel[efn] = wb
 
         ''' 生成 infoArray 数据缓存 '''
