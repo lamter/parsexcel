@@ -83,6 +83,9 @@ class Parser(object):
         for efn in self.excelFilenameS:
             ''' excel file name '''
             ap = self.getAP(efn)
+            index = ap.find("~$")
+            if index >= 0:
+                continue
             # wb = load_workbook(filename=ap, read_only=True)
             wb = load_workbook(filename=ap, read_only=True, data_only=True)
             self.excel[efn] = wb
